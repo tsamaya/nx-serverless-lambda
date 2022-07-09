@@ -1,0 +1,18 @@
+// <%= projectName %>
+
+import { APIGatewayProxyHandler } from 'aws-lambda';
+
+export const handler: APIGatewayProxyHandler = async (event, context) => {
+  return {
+    statusCode: 200,
+    body: JSON.stringify(
+      {
+        message: 'Go Serverless v3! Your function executed successfully!',
+        input: event,
+        context,
+      },
+      null,
+      2
+    ),
+  };
+};

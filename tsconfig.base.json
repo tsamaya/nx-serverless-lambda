@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@tsamaya/nx-serverless-ts": ["packages/nx-serverless-ts/src/index.ts"]
+      "@nx-serverless/nx-serverless-ts": [
+        "packages/nx-serverless-ts/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -1,0 +1,57 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/api/audience/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "cwd": "apps/api/audience",
+        "color": true,
+        "command": "sls package"
+      }
+    },
+
+    "serve": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "cwd": "apps/api/audience",
+        "color": true,
+        "command": "sls offline start serverless offline start --httpPort 3001 --lambdaPort 3002"
+      }
+    },
+    "deploy": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "cwd": "apps/api/audience",
+        "color": true,
+        "command": "sls deploy"
+      }
+    },
+    "remove": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "cwd": "apps/api/audience",
+        "color": true,
+        "command": "sls remove"
+      }
+    },
+
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/api/audience/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/api/audience"],
+      "options": {
+        "jestConfig": "apps/api/audience/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
